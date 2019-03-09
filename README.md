@@ -1,8 +1,8 @@
 # S4
 
 S4 ("S3 Search") enables quick searches on static websites hosted
-on [S3](https://aws.amazon.com/s3/). Users enter their search as part of the URL
-path. For example, `search.example.com/code` might redirect to
+with [S3](https://aws.amazon.com/s3/). Users enter their query as part of the
+URL path. For example, `search.example.com/code` might redirect to
 `example.com/pages/how-to-write-clean-code.html`. The project exists as a Lambda
 behind API Gateway. This project was bootstrapped
 with [Chalice](https://github.com/aws/chalice).
@@ -34,6 +34,11 @@ Run tests with `pytest`.
     python -m pytest
 
 Note that you'll need to install dependencies from `tests/requirements.txt`.
+
+## Configuration
+
+This project relies on one environment variable. `BUCKET` holds the name of the
+S3 bucket you'd like to search. Edit this value in `s4/.chalice/config.json`.
 
 ## Custom Domain
 
