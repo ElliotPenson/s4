@@ -1,0 +1,6 @@
+black~=18.9b0
+boto3~=1.9
+chalice~=1.7
+flake8~=3.7
+fuzzywuzzy~=0.17
+python-Levenshtein~=0.12
