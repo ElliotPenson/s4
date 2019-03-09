@@ -4,13 +4,12 @@ import boto3
 from chalice import Chalice, Response
 from fuzzywuzzy import fuzz
 
-BUCKET = "wiki.penson.io"
 app = Chalice(app_name="s4")
 
 
 @app.route("/")
 def index():
-    """Provide documentation."""
+    """Provide s4 usage information."""
     domain_name = app.current_request.context.get("domainName", "example.com")
     return f"Enter a search in the URL path. For example, {domain_name}/text"
 
@@ -18,8 +17,9 @@ def index():
 @app.route("/{query}")
 def search(query):
     """Perform a fuzzy search of HTML files in an S3 bucket."""
-    best_key = match(query, get_html_keys(BUCKET))
-    url = os.path.join("http://", BUCKET, best_key)
+    bucket = os.environ["BUCKET"]
+    best_key = match(query, get_html_keys(bucket))
+    url = os.path.join("http://", bucket, best_key)
     return redirect(url)
 
 

@@ -1,6 +1,9 @@
 {
   "version": "0.1",
   "app_name": "s4",
+  "environment_variables": {
+    "BUCKET": "wiki.penson.io"
+  },
   "stages": {
     "dev": {
       "api_gateway_stage": "api"
